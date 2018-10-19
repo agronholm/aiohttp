@@ -37,7 +37,7 @@ mypy: .flake
             mypy aiohttp; \
 	fi
 
-.develop: .install-deps $(shell find aiohttp -type f) .flake check_changes #mypy
+.develop: .install-deps $(shell find aiohttp -type f) #.flake check_changes mypy
 	@pip install -e .
 	@touch .develop
 

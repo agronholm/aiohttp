@@ -13,7 +13,7 @@ python:
 
 env:
   global:
-    PYTEST_ADDOPTS: -n 0
+    PYTEST_ADDOPTS: "'-n 0'"
 
 install:
 - &upgrade_python_toolset pip install --upgrade pip wheel setuptools

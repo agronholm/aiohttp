@@ -52,16 +52,16 @@ cov cover coverage:
 
 cov-dev: .develop
 	@echo "Run without extensions"
-	@AIOHTTP_NO_EXTENSIONS=1 pytest --cov=aiohttp tests
+	@AIOHTTP_NO_EXTENSIONS=1 pytest --forked --cov=aiohttp tests
 	@pytest --cov=aiohttp --cov-report=term --cov-report=html --cov-append tests
 	@echo "open file://`pwd`/htmlcov/index.html"
 
 cov-ci-no-ext: .develop
 	@echo "Run without extensions"
-	@AIOHTTP_NO_EXTENSIONS=1 PYTHONHASHSEED=0 pytest --cov=aiohttp tests
+	@AIOHTTP_NO_EXTENSIONS=1 PYTHONHASHSEED=0 pytest --forked --cov=aiohttp tests
 cov-ci-aio-debug: .develop
 	@echo "Run in debug mode"
-	@PYTHONASYNCIODEBUG=1 PYTHONHASHSEED=0 pytest --cov=aiohttp --cov-append tests
+	@PYTHONASYNCIODEBUG=1 PYTHONHASHSEED=0 pytest --forked --cov=aiohttp --cov-append tests
 cov-ci-run: .develop
 	@echo "Regular run"
 	@PYTHONHASHSEED=0 pytest --cov=aiohttp --cov-report=term --cov-report=html --cov-append tests

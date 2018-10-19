@@ -67,7 +67,7 @@ class BaseTestServer(ABC):
         self.host, self.port = _sock.getsockname()[:2]
         site = SockSite(self.runner, sock=_sock, ssl_context=self._ssl)
         await site.start()
-        self.port = site._server.port
+        self.port = site._server.sockets[0].getsockname()[1]
         if self.scheme is sentinel:
             if self._ssl:
                 scheme = 'https'

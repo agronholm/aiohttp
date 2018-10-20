@@ -7,6 +7,7 @@ import pytest
 from aiohttp import web
 from aiohttp.test_utils import get_unused_port_socket
 
+
 @pytest.fixture
 def app():
     return web.Application()
